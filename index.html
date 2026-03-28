@@ -136,7 +136,7 @@ select{cursor:pointer;}
     <h2>GUI Design Editor</h2>
     <p>Enter the access password to continue.</p>
     <input id="pw-input" type="password" placeholder="Password" autocomplete="off"/>
-    <button id="pw-submit" onclick="submitPassword()">Enter</button>
+    <button id="pw-submit">Enter</button>
     <p id="pw-error"></p>
   </div>
 </div>
@@ -946,6 +946,7 @@ function lockApp() {
 document.getElementById('pw-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') submitPassword();
 });
+document.getElementById('pw-submit').addEventListener('click', submitPassword);
 
 // ── PROMPT / AI GENERATION ────────────────────────────────────────────────
 let promptMode = 'generate'; // generate | edit | tokens
