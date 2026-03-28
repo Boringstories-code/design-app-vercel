@@ -921,6 +921,10 @@ async function submitPassword() {
       err.textContent = 'Incorrect password. Try again.';
       document.getElementById('pw-input').value = '';
       document.getElementById('pw-input').focus();
+    } else if (res.status === 404) {
+      err.textContent = 'Auth endpoint not found — check deployment.';
+    } else if (!res.ok) {
+      err.textContent = 'Server error ' + res.status + '. Check Vercel logs.';
     } else {
       appPassword = val;
       document.getElementById('pw-overlay').style.display = 'none';
